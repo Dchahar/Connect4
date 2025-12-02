@@ -10,4 +10,12 @@ struct Connect4Board {
     init() {
         self.grid = Array(repeating: Array(repeating: emptySlot, count: columns), count: rows)
     }
+
+    var isEmpty: Bool {
+        return grid.allSatisfy { row in
+            row.allSatisfy { column in
+                column == emptySlot
+            }
+        }
+    }
 }

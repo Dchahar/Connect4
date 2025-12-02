@@ -10,4 +10,9 @@ final class Connect4Tests: XCTestCase {
             XCTAssertEqual(row.count, 7)
         }
     }
+
+    func testBoardStartsEmpty() {
+        let board = Connect4Board()
+        XCTAssertTrue(board.isEmpty)
+    }
 }
