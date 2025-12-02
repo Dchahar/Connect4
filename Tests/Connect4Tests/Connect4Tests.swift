@@ -15,4 +15,14 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertTrue(board.isEmpty)
     }
+
+    func testDisplayBoardShowsLabelsAndEmptySlots() {
+        let board = Connect4Board()
+        let output = board.displayBoard()
+        let lines = output.components(separatedBy: "\n")
+        XCTAssertEqual(lines.count, 6 + 1)
+        XCTAssertEqual(lines.first, "  1 2 3 4 5 6 7")
+        XCTAssertTrue(lines[1].hasPrefix("6 "))
+        XCTAssertTrue(lines.last!.hasPrefix("1 "))
+    }
 }

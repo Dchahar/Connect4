@@ -18,4 +18,17 @@ struct Connect4Board {
             }
         }
     }
+
+    func displayBoard() -> String {
+        let columnSeparator = " "
+        let columnNumbers = (1...columns).map { String($0) }
+        let header = "  " + columnNumbers.joined(separator: columnSeparator)
+        let lines = grid.enumerated().map { (internalIndex, row) -> String in
+            let displayRowLabel = rows - internalIndex
+            let rowContent = row.joined(separator: columnSeparator)
+            return "\(displayRowLabel) \(rowContent)"
+        }
+        let allLines = [header] + lines
+        return allLines.joined(separator: "\n")
+    }
 }
