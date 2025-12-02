@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Connect4",
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "Connect4",
