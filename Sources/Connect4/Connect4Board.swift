@@ -1,0 +1,3 @@
+struct Connect4Board {
+
+}
