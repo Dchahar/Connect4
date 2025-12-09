@@ -12,6 +12,9 @@ final class GameInstructionsTests: XCTestCase {
 
     func testInstructionsShouldContainWelcomeMessage() {
         let instructions = GameInstructions()
-        XCTFail("Not implemented: welcome message test")
+        let welcomeMessage = instructions.welcomeMessage
+        XCTAssertTrue(welcomeMessage.contains("WELCOME TO CONNECT 4"))
+        XCTAssertTrue(welcomeMessage.contains("===="))
+        XCTAssertFalse(welcomeMessage.isEmpty)
     }
 }
