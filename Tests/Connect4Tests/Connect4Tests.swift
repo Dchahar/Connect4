@@ -25,4 +25,9 @@ final class Connect4Tests: XCTestCase {
         XCTAssertTrue(lines[1].hasPrefix("6 "))
         XCTAssertTrue(lines.last!.hasPrefix("1 "))
     }
+
+    func testEmptySlotSymbolIsHollowCircle() {
+        let board = Connect4Board()
+        XCTAssertEqual(board.emptySlot, "◯")
+    }
 }
