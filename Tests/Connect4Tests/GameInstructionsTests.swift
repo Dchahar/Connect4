@@ -17,4 +17,13 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(welcomeMessage.contains("===="))
         XCTAssertFalse(welcomeMessage.isEmpty)
     }
+
+    func testInstructionsExplainBoardDimensions() {
+        let instructions = GameInstructions()
+        let rulesMessage = instructions.rulesMessage
+        XCTAssertTrue(rulesMessage.contains("6 rows"))
+        XCTAssertTrue(rulesMessage.contains("7 columns"))
+        XCTAssertTrue(rulesMessage.contains("1 through 7"))
+        XCTAssertTrue(rulesMessage.contains("42"))
+    }
 }
