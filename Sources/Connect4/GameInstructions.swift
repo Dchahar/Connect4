@@ -47,4 +47,12 @@ struct GameInstructions {
     5. DRAW CONDITION
        - If all 42 positions are filled with coins and no player has connected 4 in a row
     """
+
+    let startMessage: String = """
+    
+    ========================================
+    
+    Press ENTER to start the game...
+    
+    """
 }

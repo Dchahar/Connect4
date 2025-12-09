@@ -67,4 +67,13 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(rulesMessage.contains("column number"))
         XCTAssertTrue(rulesMessage.contains("1-7"))
     }
+
+    func testInstructionsShouldProvideStartMessage() {
+        let instructions = GameInstructions()
+        let startMessage = instructions.startMessage
+        XCTAssertTrue(startMessage.contains("Press"))
+        XCTAssertTrue(startMessage.contains("ENTER"))
+        XCTAssertTrue(startMessage.contains("start"))
+        XCTAssertFalse(startMessage.isEmpty)
+    }
 }
