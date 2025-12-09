@@ -2,6 +2,7 @@ import Foundation
 
 struct Connect4Board {
     let emptySlot: String = "◯"
+    let player1Coin: String = "🟡"
     let rows: Int = 6
     let columns: Int = 7
 
