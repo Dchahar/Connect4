@@ -35,4 +35,9 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertEqual(board.player1Coin, "🟡")
     }
+
+    func testPlayer2CoinSymbolIsRedCircle() {
+        let board = Connect4Board()
+        XCTAssertEqual(board.player2Coin, "🔴")
+    }
 }
