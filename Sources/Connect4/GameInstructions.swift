@@ -24,5 +24,11 @@ struct GameInstructions {
        - Columns are numbered 1 through 7 from left to right
        - Rows are numbered 1 through 6 from bottom to top
        - There are 42 total positions on the board
+    
+    2. HOW TO PLAY
+       - On your turn, select a column number (1-7)
+       - Your coin will be dropped into that column
+       - The coin falls down due to gravity
+       - The coin lands in the lowest available row in that column
     """
 }

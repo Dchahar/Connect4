@@ -18,12 +18,21 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertFalse(welcomeMessage.isEmpty)
     }
 
-    func testInstructionsExplainBoardDimensions() {
+    func testInstructionsShouldExplainBoardDimensions() {
         let instructions = GameInstructions()
         let rulesMessage = instructions.rulesMessage
         XCTAssertTrue(rulesMessage.contains("6 rows"))
         XCTAssertTrue(rulesMessage.contains("7 columns"))
         XCTAssertTrue(rulesMessage.contains("1 through 7"))
         XCTAssertTrue(rulesMessage.contains("42"))
+    }
+
+    func testInstructionsShouldExplainCoinDropMechanics() {
+        let instructions = GameInstructions()
+        let rulesMessage = instructions.rulesMessage
+        XCTAssertTrue(rulesMessage.contains("select a column"))
+        XCTAssertTrue(rulesMessage.contains("dropped"))
+        XCTAssertTrue(rulesMessage.contains("gravity"))
+        XCTAssertTrue(rulesMessage.contains("lowest available row"))
     }
 }
