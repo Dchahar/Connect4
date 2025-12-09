@@ -43,4 +43,14 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(rulesMessage.contains("alternate"))
         XCTAssertTrue(rulesMessage.contains("Player 2"))
     }
+
+    func testInstructionsShouldExplainWinCondition() {
+        let instructions = GameInstructions()
+        let rulesMessage = instructions.rulesMessage
+        XCTAssertTrue(rulesMessage.contains("4"))
+        XCTAssertTrue(rulesMessage.contains("horizontally"))
+        XCTAssertTrue(rulesMessage.contains("vertically"))
+        XCTAssertTrue(rulesMessage.contains("diagonally"))
+        XCTAssertTrue(rulesMessage.contains("win"))
+    }
 }

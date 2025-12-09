@@ -36,5 +36,12 @@ struct GameInstructions {
        - After Player 1's turn, Player 2 takes their turn
        - Players continue to alternate turns
        - Each player drops one coin per turn
+    
+    4. HOW TO WIN
+       - Connect 4 of your coins in a row to win
+       - Four coins can be connected horizontally
+       - Four coins can be connected vertically
+       - Four coins can be connected diagonally
+       - The first player to connect 4 coins wins the game
     """
 }
