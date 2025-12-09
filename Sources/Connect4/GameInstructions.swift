@@ -43,5 +43,8 @@ struct GameInstructions {
        - Four coins can be connected vertically
        - Four coins can be connected diagonally
        - The first player to connect 4 coins wins the game
+    
+    5. DRAW CONDITION
+       - If all 42 positions are filled with coins and no player has connected 4 in a row
     """
 }
