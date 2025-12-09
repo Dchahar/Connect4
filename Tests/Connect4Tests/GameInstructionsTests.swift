@@ -60,4 +60,11 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(rulesMessage.contains("filled"))
         XCTAssertTrue(rulesMessage.contains("no player"))
     }
+
+    func testInstructionsShouldExplainColumnSelection() {
+        let instructions = GameInstructions()
+        let rulesMessage = instructions.rulesMessage
+        XCTAssertTrue(rulesMessage.contains("column number"))
+        XCTAssertTrue(rulesMessage.contains("1-7"))
+    }
 }
