@@ -30,5 +30,11 @@ struct GameInstructions {
        - Your coin will be dropped into that column
        - The coin falls down due to gravity
        - The coin lands in the lowest available row in that column
+    
+    3. TURN ORDER
+       - Player 1 goes first
+       - After Player 1's turn, Player 2 takes their turn
+       - Players continue to alternate turns
+       - Each player drops one coin per turn
     """
 }

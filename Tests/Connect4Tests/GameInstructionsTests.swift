@@ -35,4 +35,12 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(rulesMessage.contains("gravity"))
         XCTAssertTrue(rulesMessage.contains("lowest available row"))
     }
+
+    func testInstructionsShouldExplainTurnOrder() {
+        let instructions = GameInstructions()
+        let rulesMessage = instructions.rulesMessage
+        XCTAssertTrue(rulesMessage.contains("Player 1 goes first"))
+        XCTAssertTrue(rulesMessage.contains("alternate"))
+        XCTAssertTrue(rulesMessage.contains("Player 2"))
+    }
 }
