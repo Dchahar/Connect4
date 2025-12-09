@@ -51,9 +51,7 @@ struct GameInstructions {
     let startMessage: String = """
     
     ========================================
-    
     Press ENTER to start the game...
-    
     """
 
     var completeInstructions: String {
