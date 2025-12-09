@@ -76,4 +76,16 @@ final class GameInstructionsTests: XCTestCase {
         XCTAssertTrue(startMessage.contains("start"))
         XCTAssertFalse(startMessage.isEmpty)
     }
+
+    func testFullInstructionsShouldIncludeAllComponents() {
+        let instructions = GameInstructions()
+        let completeInstructions = instructions.completeInstructions
+        XCTAssertTrue(completeInstructions.contains("WELCOME TO CONNECT 4"))
+        XCTAssertTrue(completeInstructions.contains("6 rows"))
+        XCTAssertTrue(completeInstructions.contains("gravity"))
+        XCTAssertTrue(completeInstructions.contains("Player 1 goes first"))
+        XCTAssertTrue(completeInstructions.contains("horizontally"))
+        XCTAssertTrue(completeInstructions.contains("filled"))
+        XCTAssertTrue(completeInstructions.contains("Press ENTER"))
+    }
 }

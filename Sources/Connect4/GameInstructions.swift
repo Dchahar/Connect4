@@ -55,4 +55,11 @@ struct GameInstructions {
     Press ENTER to start the game...
     
     """
+
+    var completeInstructions: String {
+        var fullText = welcomeMessage
+        fullText += rulesMessage
+        fullText += startMessage
+        return fullText
+    }
 }
