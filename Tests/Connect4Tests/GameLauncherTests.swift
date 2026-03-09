@@ -31,4 +31,28 @@ final class GameLauncherTests: XCTestCase {
         let launcher = GameLauncher()
         XCTAssertTrue(launcher.board.isEmpty)
     }
+
+    func testValidateColumnInputAcceptsValidColumn() {
+        let launcher = GameLauncher()
+        let result = launcher.validateColumnInput("4")
+        XCTAssertEqual(result, 4)
+    }
+
+    func testValidateColumnInputRejectsOutOfRange() {
+        let launcher = GameLauncher()
+        let result = launcher.validateColumnInput("9")
+        XCTAssertNil(result)
+    }
+
+    func testValidateColumnInputRejectsNonNumeric() {
+        let launcher = GameLauncher()
+        let result = launcher.validateColumnInput("abc")
+        XCTAssertNil(result)
+    }
+
+    func testValidateColumnInputRejectsEmptyString() {
+        let launcher = GameLauncher()
+        let result = launcher.validateColumnInput("")
+        XCTAssertNil(result)
+    }
 }
