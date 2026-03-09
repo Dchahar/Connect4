@@ -82,4 +82,12 @@ final class Connect4Tests: XCTestCase {
         XCTAssertEqual(landedRow, 1)
         XCTAssertEqual(board.grid[5][2], board.player1Coin)
     }
+
+    func testSecondCoinStacksOnTopOfFirstInSameColumn() {
+        var board = Connect4Board()
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        let landedRow = board.dropCoin(column: 3, coin: board.player2Coin)
+        XCTAssertEqual(landedRow, 2)
+        XCTAssertEqual(board.grid[4][2], board.player2Coin)
+    }
 }
