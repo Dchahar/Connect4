@@ -21,6 +21,10 @@ struct Connect4Board {
         }
     }
 
+    func isValidColumn(_ column: Int) -> Bool {
+        return (1...columns).contains(column)
+    }
+
     func displayBoard() -> String {
         let columnSeparator = " "
         let columnNumbers = (1...columns).map { String($0) }
