@@ -42,6 +42,10 @@ struct Connect4Board {
         }
     }
 
+    func hasVerticalWin(_ coin: String) -> Bool {
+        return false
+    }
+
     private func containsFourConsecutive(
         _ slots: [String],
         _ coin: String
