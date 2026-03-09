@@ -14,4 +14,9 @@ final class GameOutcomeTests: XCTestCase {
         let outcome = GameOutcome.win(Player.one)
         XCTAssertEqual(outcome.message, "Player 1 wins!")
     }
+
+    func testDrawOutcomeMessage() {
+        let outcome = GameOutcome.draw
+        XCTAssertEqual(outcome.message, "It's a draw!")
+    }
 }
