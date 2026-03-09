@@ -29,7 +29,9 @@ struct Connect4Board {
     }
 
     var isFull: Bool {
-        return false
+        return !grid.contains { row in
+            row.contains(emptySlot)
+        }
     }
 
     func isValidColumn(_ column: Int) -> Bool {
