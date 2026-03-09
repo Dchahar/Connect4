@@ -29,6 +29,13 @@ struct Connect4Board {
         return Int(input)
     }
 
+    mutating func dropCoin(column: Int, coin: String) -> Int {
+        let internalRow = rows - 1
+        let internalColumn = column - 1
+        grid[internalRow][internalColumn] = coin
+        return 1
+    }
+
     func displayBoard() -> String {
         let columnSeparator = " "
         let columnNumbers = (1...columns).map { String($0) }
