@@ -66,6 +66,7 @@ public struct GameLauncher {
         let column = promptForColumn()
         handleCoinDrop(column)
         guard !checkForWin() else { return }
+        guard !checkForDraw() else { return }
         switchPlayer()
         runGameLoop()
     }
@@ -77,6 +78,13 @@ public struct GameLauncher {
         guard hasWon else { return false }
         print(board.displayBoard())
         print("\(currentPlayer.label) wins!")
+        return true
+    }
+
+    func checkForDraw() -> Bool {
+        guard board.isFull else { return false }
+        print(board.displayBoard())
+        print("It's a draw!")
         return true
     }
 
