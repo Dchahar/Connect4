@@ -73,4 +73,19 @@ final class GameWinDetectionTests: XCTestCase {
         board.dropCoin(column: 4, coin: board.player1Coin)
         XCTAssertTrue(board.hasDiagonalWin(board.player1Coin))
     }
+
+    func testDescendingDiagonalWinWithFourCoins() {
+        var board = Connect4Board()
+        board.dropCoin(column: 4, coin: board.player1Coin)
+        board.dropCoin(column: 3, coin: board.player2Coin)
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        board.dropCoin(column: 2, coin: board.player2Coin)
+        board.dropCoin(column: 2, coin: board.player2Coin)
+        board.dropCoin(column: 2, coin: board.player1Coin)
+        board.dropCoin(column: 1, coin: board.player2Coin)
+        board.dropCoin(column: 1, coin: board.player2Coin)
+        board.dropCoin(column: 1, coin: board.player2Coin)
+        board.dropCoin(column: 1, coin: board.player1Coin)
+        XCTAssertTrue(board.hasDiagonalWin(board.player1Coin))
+    }
 }
