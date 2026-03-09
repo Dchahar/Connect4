@@ -28,15 +28,38 @@ public struct GameLauncher {
         return false
     }
 
-    public func startGame() {
+    func validateColumnInput(_ input: String) -> Int? {
+        guard let column = board.parseColumnInput(input) else { return nil }
+        guard board.isValidColumn(column) else { return nil }
+        return column
+    }
+
+    func promptForColumn() -> Int {
+        print("Enter a column number (1-7):")
+        let input = readLine() ?? ""
+        let column = validateColumnInput(input)
+        if column != nil { return column! }
+        print("Invalid input. Please enter a number between 1 and 7.")
+        return promptForColumn()
+    }
+
+    public mutating func startGame() {
         displayInstructions()
         let userReady = waitForUserToStart()
-        if userReady {
-            let boardDisplay = board.displayBoard()
+        guard userReady else { return }
+        runGameLoop()
+    }
+
+    mutating func runGameLoop() {
+        var gameOver = false
+        while !gameOver {
             print("\n")
-            print(boardDisplay)
+            print(board.displayBoard())
             print("\n")
-            print("Game started! Player 1's turn.")
+            print("Player 1's turn (\(board.player1Coin))")
+            let column = promptForColumn()
+            print("Column \(column) selected.")
+            gameOver = true
         }
     }
 }

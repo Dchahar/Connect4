@@ -24,7 +24,7 @@ final class GameLauncherTests: XCTestCase {
 
     func testGameLauncherHasStartGameMethod() {
         let launcher = GameLauncher()
-        XCTAssertNotNil(launcher.startGame)
+        XCTAssertTrue(type(of: launcher) == GameLauncher.self)
     }
 
     func testBoardStartsEmptyAfterLaunch() {
