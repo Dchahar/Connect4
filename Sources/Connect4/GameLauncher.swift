@@ -76,6 +76,7 @@ public struct GameLauncher {
             return
         }
         displayOutcome(outcome)
+        promptForRematch()
     }
 
     func determineOutcome() -> GameOutcome? {
@@ -90,6 +91,14 @@ public struct GameLauncher {
     func displayOutcome(_ outcome: GameOutcome) {
         print(board.displayBoard())
         print(outcome.message)
+    }
+
+    mutating func promptForRematch() {
+        print("Play again? (y/n):")
+        let input = readLine() ?? ""
+        guard input.lowercased() == "y" else { return }
+        resetGame()
+        runGameLoop()
     }
 
     mutating func handleCoinDrop(_ column: Int) {
