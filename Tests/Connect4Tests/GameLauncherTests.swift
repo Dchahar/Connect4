@@ -55,4 +55,9 @@ final class GameLauncherTests: XCTestCase {
         let result = launcher.validateColumnInput("")
         XCTAssertNil(result)
     }
+
+    func testCurrentPlayerStartsAsPlayerOne() {
+        let launcher = GameLauncher()
+        XCTAssertEqual(launcher.currentPlayer, 1)
+    }
 }
