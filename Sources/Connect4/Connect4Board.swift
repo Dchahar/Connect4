@@ -34,7 +34,8 @@ struct Connect4Board {
         return Int(input)
     }
 
-    mutating func dropCoin(column: Int, coin: String) -> Int {
+    @discardableResult
+    mutating func dropCoin(column: Int, coin: String) -> Int? {
         let internalColumn = column - 1
         for internalRow in stride(from: rows - 1, through: 0, by: -1) {
             if grid[internalRow][internalColumn] == emptySlot {
@@ -42,7 +43,7 @@ struct Connect4Board {
                 return rows - internalRow
             }
         }
-        return 0
+        return nil
     }
 
     func displayBoard() -> String {
