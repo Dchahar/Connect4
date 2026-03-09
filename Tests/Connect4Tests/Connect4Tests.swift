@@ -131,4 +131,13 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertFalse(board.hasVerticalWin(board.player1Coin))
     }
+
+    func testVerticalWinWithFourStackedCoins() {
+        var board = Connect4Board()
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        XCTAssertTrue(board.hasVerticalWin(board.player1Coin))
+    }
 }
