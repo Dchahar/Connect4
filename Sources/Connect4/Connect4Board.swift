@@ -57,31 +57,23 @@ struct Connect4Board {
     }
 
     private func ascendingDiagonals() -> [[String]] {
-        var diagonals: [[String]] = []
-        for sum in 0..<(rows + columns - 1) {
-            var diagonal: [String] = []
-            for row in stride(from: rows - 1, through: 0, by: -1) {
+        return (0..<(rows + columns - 1)).map { sum in
+            stride(from: rows - 1, through: 0, by: -1).compactMap { row in
                 let col = sum - row
-                guard (0..<columns).contains(col) else { continue }
-                diagonal.append(grid[row][col])
+                guard (0..<columns).contains(col) else { return nil }
+                return grid[row][col]
             }
-            diagonals.append(diagonal)
         }
-        return diagonals
     }
 
     private func descendingDiagonals() -> [[String]] {
-        var diagonals: [[String]] = []
-        for diff in -(columns - 1)..<rows {
-            var diagonal: [String] = []
-            for row in 0..<rows {
+        return (-(columns - 1)..<rows).map { diff in
+            (0..<rows).compactMap { row in
                 let col = row - diff
-                guard (0..<columns).contains(col) else { continue }
-                diagonal.append(grid[row][col])
+                guard (0..<columns).contains(col) else { return nil }
+                return grid[row][col]
             }
-            diagonals.append(diagonal)
         }
-        return diagonals
     }
 
     private func containsFourConsecutive(
