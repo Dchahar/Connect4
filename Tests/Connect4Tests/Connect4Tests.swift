@@ -103,4 +103,13 @@ final class Connect4Tests: XCTestCase {
         }
         XCTAssertTrue(board.isColumnFull(3))
     }
+
+    func testDropCoinReturnsNilForFullColumn() {
+        var board = Connect4Board()
+        for _ in 1...6 {
+            board.dropCoin(column: 3, coin: board.player1Coin)
+        }
+        let result = board.dropCoin(column: 3, coin: board.player2Coin)
+        XCTAssertNil(result)
+    }
 }
