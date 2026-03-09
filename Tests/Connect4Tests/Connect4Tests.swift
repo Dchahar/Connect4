@@ -90,4 +90,17 @@ final class Connect4Tests: XCTestCase {
         XCTAssertEqual(landedRow, 2)
         XCTAssertEqual(board.grid[4][2], board.player2Coin)
     }
+
+    func testEmptyColumnIsNotFull() {
+        let board = Connect4Board()
+        XCTAssertFalse(board.isColumnFull(3))
+    }
+
+    func testColumnWithSixCoinsIsFull() {
+        var board = Connect4Board()
+        for _ in 1...6 {
+            board.dropCoin(column: 3, coin: board.player1Coin)
+        }
+        XCTAssertTrue(board.isColumnFull(3))
+    }
 }
