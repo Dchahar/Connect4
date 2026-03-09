@@ -60,6 +60,7 @@ public struct GameLauncher {
             handleCoinDrop(promptForColumn())
             return
         }
+        displayCurrentBoard()
     }
 
     func displayCurrentBoard() {
