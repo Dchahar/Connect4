@@ -11,7 +11,7 @@ public struct GameLauncher {
 
     let instructions: GameInstructions
     var board: Connect4Board
-    var currentPlayer: Int = 1
+    var currentPlayer: Player = .one
 
     public init() {
         instructions = GameInstructions()
@@ -19,11 +19,11 @@ public struct GameLauncher {
     }
 
     mutating func switchPlayer() {
-        currentPlayer = (currentPlayer == 1) ? 2 : 1
+        currentPlayer = currentPlayer.next
     }
 
     var currentCoin: String {
-        return (currentPlayer == 1) ? board.player1Coin : board.player2Coin
+        return currentPlayer.coin
     }
 
     func displayInstructions() {
@@ -77,6 +77,6 @@ public struct GameLauncher {
         print("\n")
         print(board.displayBoard())
         print("\n")
-        print("Player \(currentPlayer)'s turn (\(currentCoin))")
+        print("\(currentPlayer.label)'s turn (\(currentCoin))")
     }
 }

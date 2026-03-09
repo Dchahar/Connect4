@@ -58,20 +58,20 @@ final class GameLauncherTests: XCTestCase {
 
     func testCurrentPlayerStartsAsPlayerOne() {
         let launcher = GameLauncher()
-        XCTAssertEqual(launcher.currentPlayer, 1)
+        XCTAssertEqual(launcher.currentPlayer, .one)
     }
 
     func testSwitchPlayerChangesToPlayerTwo() {
         var launcher = GameLauncher()
         launcher.switchPlayer()
-        XCTAssertEqual(launcher.currentPlayer, 2)
+        XCTAssertEqual(launcher.currentPlayer, .two)
     }
 
     func testSwitchPlayerTwiceReturnsToPlayerOne() {
         var launcher = GameLauncher()
         launcher.switchPlayer()
         launcher.switchPlayer()
-        XCTAssertEqual(launcher.currentPlayer, 1)
+        XCTAssertEqual(launcher.currentPlayer, .one)
     }
 
     func testCurrentCoinReturnsYellowForPlayerOne() {
