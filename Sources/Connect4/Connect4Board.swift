@@ -42,6 +42,10 @@ struct Connect4Board {
         return findLowestEmptyRow(column) == nil
     }
 
+    mutating func resetBoard() {
+        grid = Array(repeating: Array(repeating: emptySlot, count: columns), count: rows)
+    }
+
     @discardableResult
     mutating func dropCoin(column: Int, coin: String) -> Int? {
         guard let internalRow = findLowestEmptyRow(column) else { return nil }
