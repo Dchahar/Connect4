@@ -45,4 +45,19 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertTrue(board.isValidColumn(4))
     }
+
+    func testColumnZeroIsRejected() {
+        let board = Connect4Board()
+        XCTAssertFalse(board.isValidColumn(0))
+    }
+
+    func testColumnEightIsRejected() {
+        let board = Connect4Board()
+        XCTAssertFalse(board.isValidColumn(8))
+    }
+
+    func testNegativeColumnIsRejected() {
+        let board = Connect4Board()
+        XCTAssertFalse(board.isValidColumn(-1))
+    }
 }
