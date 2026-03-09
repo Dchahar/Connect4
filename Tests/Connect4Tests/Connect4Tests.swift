@@ -23,7 +23,7 @@ final class Connect4Tests: XCTestCase {
         XCTAssertEqual(lines.count, 6 + 1)
         XCTAssertEqual(lines.first, "  1 2 3 4 5 6 7")
         XCTAssertTrue(lines[1].hasPrefix("6 "))
-        XCTAssertTrue(lines.last!.hasPrefix("1 "))
+        XCTAssertTrue(lines[6].hasPrefix("1 "))
     }
 
     func testEmptySlotSymbolIsHollowCircle() {
