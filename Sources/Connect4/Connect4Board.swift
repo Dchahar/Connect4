@@ -28,6 +28,10 @@ struct Connect4Board {
         }
     }
 
+    var isFull: Bool {
+        return false
+    }
+
     func isValidColumn(_ column: Int) -> Bool {
         return (1...columns).contains(column)
     }
