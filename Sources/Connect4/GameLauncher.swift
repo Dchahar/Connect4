@@ -65,27 +65,26 @@ public struct GameLauncher {
         displayCurrentBoard()
         let column = promptForColumn()
         handleCoinDrop(column)
-        guard !checkForWin() else { return }
-        guard !checkForDraw() else { return }
-        switchPlayer()
-        runGameLoop()
+        guard let outcome = determineOutcome() else {
+            switchPlayer()
+            runGameLoop()
+            return
+        }
+        displayOutcome(outcome)
     }
 
-    func checkForWin() -> Bool {
+    func determineOutcome() -> GameOutcome? {
         let hasWon = board.hasHorizontalWin(currentCoin)
             || board.hasVerticalWin(currentCoin)
             || board.hasDiagonalWin(currentCoin)
-        guard hasWon else { return false }
-        print(board.displayBoard())
-        print("\(currentPlayer.label) wins!")
-        return true
+        if hasWon { return .win(currentPlayer) }
+        if board.isFull { return .draw }
+        return nil
     }
 
-    func checkForDraw() -> Bool {
-        guard board.isFull else { return false }
+    func displayOutcome(_ outcome: GameOutcome) {
         print(board.displayBoard())
-        print("It's a draw!")
-        return true
+        print(outcome.message)
     }
 
     mutating func handleCoinDrop(_ column: Int) {
