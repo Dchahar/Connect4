@@ -22,6 +22,10 @@ public struct GameLauncher {
         currentPlayer = (currentPlayer == 1) ? 2 : 1
     }
 
+    var currentCoin: String {
+        return (currentPlayer == 1) ? board.player1Coin : board.player2Coin
+    }
+
     func displayInstructions() {
         let fullInstructions = instructions.completeInstructions
         print(fullInstructions)
