@@ -11,6 +11,7 @@ public struct GameLauncher {
 
     let instructions: GameInstructions
     var board: Connect4Board
+    var currentPlayer: Int = 1
 
     public init() {
         instructions = GameInstructions()
