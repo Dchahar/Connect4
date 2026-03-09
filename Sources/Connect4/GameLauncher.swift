@@ -18,6 +18,10 @@ public struct GameLauncher {
         board = Connect4Board()
     }
 
+    mutating func switchPlayer() {
+        currentPlayer = (currentPlayer == 1) ? 2 : 1
+    }
+
     func displayInstructions() {
         let fullInstructions = instructions.completeInstructions
         print(fullInstructions)
