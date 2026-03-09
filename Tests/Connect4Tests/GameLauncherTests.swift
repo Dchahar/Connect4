@@ -73,4 +73,15 @@ final class GameLauncherTests: XCTestCase {
         launcher.switchPlayer()
         XCTAssertEqual(launcher.currentPlayer, 1)
     }
+
+    func testCurrentCoinReturnsYellowForPlayerOne() {
+        let launcher = GameLauncher()
+        XCTAssertEqual(launcher.currentCoin, "🟡")
+    }
+
+    func testCurrentCoinReturnsRedForPlayerTwo() {
+        var launcher = GameLauncher()
+        launcher.switchPlayer()
+        XCTAssertEqual(launcher.currentCoin, "🔴")
+    }
 }
