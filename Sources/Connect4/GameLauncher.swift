@@ -71,7 +71,9 @@ public struct GameLauncher {
     }
 
     func checkForWin() -> Bool {
-        guard board.hasHorizontalWin(currentCoin) else { return false }
+        let hasWon = board.hasHorizontalWin(currentCoin)
+            || board.hasVerticalWin(currentCoin)
+        guard hasWon else { return false }
         print(board.displayBoard())
         print("\(currentPlayer.label) wins!")
         return true
