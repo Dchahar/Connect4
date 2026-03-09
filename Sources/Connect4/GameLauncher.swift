@@ -35,8 +35,12 @@ public struct GameLauncher {
         return readLine() != nil
     }
 
+    func parseColumnInput(_ input: String) -> Int? {
+        return Int(input)
+    }
+
     func validateColumnInput(_ input: String) -> Int? {
-        guard let column = board.parseColumnInput(input) else { return nil }
+        guard let column = parseColumnInput(input) else { return nil }
         guard board.isValidColumn(column) else { return nil }
         return column
     }

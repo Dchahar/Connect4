@@ -84,4 +84,19 @@ final class GameLauncherTests: XCTestCase {
         launcher.switchPlayer()
         XCTAssertEqual(launcher.currentCoin, "🔴")
     }
+
+    func testParseValidColumnInputReturnsNumber() {
+        let launcher = GameLauncher()
+        XCTAssertEqual(launcher.parseColumnInput("4"), 4)
+    }
+
+    func testParseNonNumericInputReturnsNil() {
+        let launcher = GameLauncher()
+        XCTAssertNil(launcher.parseColumnInput("abc"))
+    }
+
+    func testParseEmptyInputReturnsNil() {
+        let launcher = GameLauncher()
+        XCTAssertNil(launcher.parseColumnInput(""))
+    }
 }

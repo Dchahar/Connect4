@@ -36,10 +36,6 @@ struct Connect4Board {
         return findLowestEmptyRow(column) == nil
     }
 
-    func parseColumnInput(_ input: String) -> Int? {
-        return Int(input)
-    }
-
     @discardableResult
     mutating func dropCoin(column: Int, coin: String) -> Int? {
         guard let internalRow = findLowestEmptyRow(column) else { return nil }

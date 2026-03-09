@@ -68,21 +68,6 @@ final class Connect4Tests: XCTestCase {
         XCTAssertFalse(board.isValidColumn(-1))
     }
 
-    func testParseValidColumnInputReturnsNumber() {
-        let board = Connect4Board()
-        XCTAssertEqual(board.parseColumnInput("4"), 4)
-    }
-
-    func testParseNonNumericInputReturnsNil() {
-        let board = Connect4Board()
-        XCTAssertNil(board.parseColumnInput("abc"))
-    }
-
-    func testParseEmptyInputReturnsNil() {
-        let board = Connect4Board()
-        XCTAssertNil(board.parseColumnInput(""))
-    }
-
     func testDropCoinPlacesCoinAtBottomOfEmptyColumn() {
         var board = Connect4Board()
         let landedRow = board.dropCoin(column: 3, coin: board.player1Coin)
