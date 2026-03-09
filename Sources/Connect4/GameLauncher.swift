@@ -51,7 +51,15 @@ public struct GameLauncher {
     mutating func runGameLoop() {
         displayCurrentBoard()
         let column = promptForColumn()
-        print("Column \(column) selected.")
+        handleCoinDrop(column)
+    }
+
+    mutating func handleCoinDrop(_ column: Int) {
+        guard board.dropCoin(column: column, coin: board.player1Coin) != nil else {
+            print("Column \(column) is full")
+            handleCoinDrop(promptForColumn())
+            return
+        }
     }
 
     func displayCurrentBoard() {

@@ -26,8 +26,7 @@ struct Connect4Board {
     }
 
     func isColumnFull(_ column: Int) -> Bool {
-        let internalColumn = column - 1
-        return grid[0][internalColumn] != emptySlot
+        return findLowestEmptyRow(column) == nil
     }
 
     func parseColumnInput(_ input: String) -> Int? {
@@ -36,12 +35,16 @@ struct Connect4Board {
 
     @discardableResult
     mutating func dropCoin(column: Int, coin: String) -> Int? {
+        guard let internalRow = findLowestEmptyRow(column) else { return nil }
+        grid[internalRow][column - 1] = coin
+        return rows - internalRow
+    }
+
+    private func findLowestEmptyRow(_ column: Int) -> Int? {
         let internalColumn = column - 1
         for internalRow in stride(from: rows - 1, through: 0, by: -1) {
-            if grid[internalRow][internalColumn] == emptySlot {
-                grid[internalRow][internalColumn] = coin
-                return rows - internalRow
-            }
+            guard grid[internalRow][internalColumn] == emptySlot else { continue }
+            return internalRow
         }
         return nil
     }
