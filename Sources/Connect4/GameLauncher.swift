@@ -10,18 +10,18 @@ import Foundation
 public struct GameLauncher {
 
     let instructions: GameInstructions
-    let board: Connect4Board
-    
+    var board: Connect4Board
+
     public init() {
         instructions = GameInstructions()
         board = Connect4Board()
     }
-    
+
     func displayInstructions() {
         let fullInstructions = instructions.completeInstructions
         print(fullInstructions)
     }
-    
+
     func waitForUserToStart() -> Bool {
         let input = readLine()
         if input != nil { return true }

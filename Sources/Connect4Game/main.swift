@@ -8,5 +8,5 @@
 import Foundation
 import Connect4
 
-let gameLauncher = GameLauncher()
+var gameLauncher = GameLauncher()
 gameLauncher.startGame()
