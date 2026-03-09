@@ -110,4 +110,13 @@ final class GameLauncherTests: XCTestCase {
         XCTAssertTrue(launcher.board.isColumnFull(5))
         XCTAssertEqual(launcher.currentPlayer, .two)
     }
+
+    func testResetGameResetsPlayerAndBoard() {
+        var launcher = GameLauncher()
+        launcher.switchPlayer()
+        launcher.board.dropCoin(column: 3, coin: "🟡")
+        launcher.resetGame()
+        XCTAssertEqual(launcher.currentPlayer, .one)
+        XCTAssertTrue(launcher.board.isEmpty)
+    }
 }
