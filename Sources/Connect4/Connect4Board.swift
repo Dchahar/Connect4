@@ -53,15 +53,20 @@ struct Connect4Board {
     }
 
     func displayBoard() -> String {
-        let columnSeparator = " "
+        let header = buildHeader()
+        let rows = buildRows()
+        return ([header] + rows).joined(separator: "\n")
+    }
+
+    private func buildHeader() -> String {
         let columnNumbers = (1...columns).map { String($0) }
-        let header = "  " + columnNumbers.joined(separator: columnSeparator)
-        let lines = grid.enumerated().map { (internalIndex, row) -> String in
-            let displayRowLabel = rows - internalIndex
-            let rowContent = row.joined(separator: columnSeparator)
-            return "\(displayRowLabel) \(rowContent)"
+        return "  " + columnNumbers.joined(separator: " ")
+    }
+
+    private func buildRows() -> [String] {
+        return grid.enumerated().map { (index, row) in
+            let label = rows - index
+            return "\(label) \(row.joined(separator: " "))"
         }
-        let allLines = [header] + lines
-        return allLines.joined(separator: "\n")
     }
 }
