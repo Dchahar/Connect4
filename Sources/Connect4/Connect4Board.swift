@@ -37,6 +37,20 @@ struct Connect4Board {
     }
 
     func hasHorizontalWin(_ coin: String) -> Bool {
+        return grid.contains { row in
+            containsFourConsecutive(row, coin)
+        }
+    }
+
+    private func containsFourConsecutive(
+        _ slots: [String],
+        _ coin: String
+    ) -> Bool {
+        var count = 0
+        for slot in slots {
+            count = (slot == coin) ? count + 1 : 0
+            guard count < 4 else { return true }
+        }
         return false
     }
 
