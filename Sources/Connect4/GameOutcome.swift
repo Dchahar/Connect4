@@ -7,11 +7,14 @@
 
 enum GameOutcome {
     case win(Player)
+    case draw
 
     var message: String {
         switch self {
         case .win(let player):
             return "\(player.label) wins!"
+        case .draw:
+            return "It's a draw!"
         }
     }
 }
