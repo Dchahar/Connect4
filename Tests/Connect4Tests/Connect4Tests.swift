@@ -40,4 +40,9 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertEqual(board.player2Coin, "🔴")
     }
+
+    func testValidColumnNumberIsAccepted() {
+        let board = Connect4Board()
+        XCTAssertTrue(board.isValidColumn(4))
+    }
 }
