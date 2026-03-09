@@ -99,4 +99,15 @@ final class GameLauncherTests: XCTestCase {
         let launcher = GameLauncher()
         XCTAssertNil(launcher.parseColumnInput(""))
     }
+
+    func testTurnDoesNotAdvanceAfterFullColumnAttempt() {
+        var launcher = GameLauncher()
+        launcher.switchPlayer()
+        XCTAssertEqual(launcher.currentPlayer, .two)
+        for _ in 1...6 {
+            launcher.board.dropCoin(column: 5, coin: "🟡")
+        }
+        XCTAssertTrue(launcher.board.isColumnFull(5))
+        XCTAssertEqual(launcher.currentPlayer, .two)
+    }
 }
