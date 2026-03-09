@@ -109,4 +109,14 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertFalse(board.isFull)
     }
+
+    func testBoardIsFullWhenAllSlotsFilled() {
+        var board = Connect4Board()
+        for column in 1...7 {
+            for _ in 1...6 {
+                board.dropCoin(column: column, coin: board.player1Coin)
+            }
+        }
+        XCTAssertTrue(board.isFull)
+    }
 }
