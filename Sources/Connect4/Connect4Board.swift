@@ -50,7 +50,8 @@ struct Connect4Board {
     }
 
     func hasDiagonalWin(_ coin: String) -> Bool {
-        return ascendingDiagonals().contains { diagonal in
+        let allDiagonals = ascendingDiagonals() + descendingDiagonals()
+        return allDiagonals.contains { diagonal in
             containsFourConsecutive(diagonal, coin)
         }
     }
@@ -61,6 +62,20 @@ struct Connect4Board {
             var diagonal: [String] = []
             for row in stride(from: rows - 1, through: 0, by: -1) {
                 let col = sum - row
+                guard (0..<columns).contains(col) else { continue }
+                diagonal.append(grid[row][col])
+            }
+            diagonals.append(diagonal)
+        }
+        return diagonals
+    }
+
+    private func descendingDiagonals() -> [[String]] {
+        var diagonals: [[String]] = []
+        for diff in -(columns - 1)..<rows {
+            var diagonal: [String] = []
+            for row in 0..<rows {
+                let col = row - diff
                 guard (0..<columns).contains(col) else { continue }
                 diagonal.append(grid[row][col])
             }
