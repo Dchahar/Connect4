@@ -22,6 +22,11 @@ public struct GameLauncher {
         currentPlayer = currentPlayer.next
     }
 
+    mutating func resetGame() {
+        board.resetBoard()
+        currentPlayer = .one
+    }
+
     var currentCoin: String {
         return currentPlayer.coin
     }
