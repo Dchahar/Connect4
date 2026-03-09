@@ -25,6 +25,10 @@ struct Connect4Board {
         return (1...columns).contains(column)
     }
 
+    func parseColumnInput(_ input: String) -> Int? {
+        return Int(input)
+    }
+
     func displayBoard() -> String {
         let columnSeparator = " "
         let columnNumbers = (1...columns).map { String($0) }
