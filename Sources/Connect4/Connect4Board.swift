@@ -43,7 +43,10 @@ struct Connect4Board {
     }
 
     func hasVerticalWin(_ coin: String) -> Bool {
-        return false
+        return (0..<columns).contains { column in
+            let columnSlice = grid.map { $0[column] }
+            return containsFourConsecutive(columnSlice, coin)
+        }
     }
 
     private func containsFourConsecutive(
