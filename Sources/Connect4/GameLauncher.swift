@@ -61,21 +61,22 @@ public struct GameLauncher {
         displayCurrentBoard()
         let column = promptForColumn()
         handleCoinDrop(column)
+        switchPlayer()
+        runGameLoop()
     }
 
     mutating func handleCoinDrop(_ column: Int) {
-        guard board.dropCoin(column: column, coin: board.player1Coin) != nil else {
+        guard board.dropCoin(column: column, coin: currentCoin) != nil else {
             print("Column \(column) is full")
             handleCoinDrop(promptForColumn())
             return
         }
-        displayCurrentBoard()
     }
 
     func displayCurrentBoard() {
         print("\n")
         print(board.displayBoard())
         print("\n")
-        print("Player 1's turn (\(board.player1Coin))")
+        print("Player \(currentPlayer)'s turn (\(currentCoin))")
     }
 }
