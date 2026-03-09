@@ -118,4 +118,12 @@ final class Connect4Tests: XCTestCase {
         board.dropCoin(column: 6, coin: board.player1Coin)
         XCTAssertTrue(board.hasHorizontalWin(board.player1Coin))
     }
+
+    func testThreeInARowDoesNotTriggerHorizontalWin() {
+        var board = Connect4Board()
+        board.dropCoin(column: 3, coin: board.player1Coin)
+        board.dropCoin(column: 4, coin: board.player1Coin)
+        board.dropCoin(column: 5, coin: board.player1Coin)
+        XCTAssertFalse(board.hasHorizontalWin(board.player1Coin))
+    }
 }
