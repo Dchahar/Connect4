@@ -36,6 +36,10 @@ struct Connect4Board {
         return findLowestEmptyRow(column) == nil
     }
 
+    func hasHorizontalWin(_ coin: String) -> Bool {
+        return false
+    }
+
     @discardableResult
     mutating func dropCoin(column: Int, coin: String) -> Int? {
         guard let internalRow = findLowestEmptyRow(column) else { return nil }
