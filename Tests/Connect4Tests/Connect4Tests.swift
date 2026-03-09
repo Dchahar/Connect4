@@ -104,4 +104,9 @@ final class Connect4Tests: XCTestCase {
         let result = board.dropCoin(column: 3, coin: board.player2Coin)
         XCTAssertNil(result)
     }
+
+    func testNoHorizontalWinOnEmptyBoard() {
+        let board = Connect4Board()
+        XCTAssertFalse(board.hasHorizontalWin(board.player1Coin))
+    }
 }
