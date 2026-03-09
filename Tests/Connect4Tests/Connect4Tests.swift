@@ -75,4 +75,11 @@ final class Connect4Tests: XCTestCase {
         let board = Connect4Board()
         XCTAssertNil(board.parseColumnInput(""))
     }
+
+    func testDropCoinPlacesCoinAtBottomOfEmptyColumn() {
+        var board = Connect4Board()
+        let landedRow = board.dropCoin(column: 3, coin: board.player1Coin)
+        XCTAssertEqual(landedRow, 1)
+        XCTAssertEqual(board.grid[5][2], board.player1Coin)
+    }
 }
