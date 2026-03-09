@@ -25,6 +25,11 @@ struct Connect4Board {
         return (1...columns).contains(column)
     }
 
+    func isColumnFull(_ column: Int) -> Bool {
+        let internalColumn = column - 1
+        return grid[0][internalColumn] != emptySlot
+    }
+
     func parseColumnInput(_ input: String) -> Int? {
         return Int(input)
     }
