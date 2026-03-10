@@ -28,14 +28,14 @@ final class Connect4Tests: XCTestCase {
         let output = board.displayBoard()
         let lines = output.components(separatedBy: "\n")
         XCTAssertEqual(lines.count, 6 + 1)
-        XCTAssertEqual(lines.first, "  1 2 3 4 5 6 7")
+        XCTAssertEqual(lines.first, "  1  2  3  4  5  6  7")
         XCTAssertTrue(lines[1].hasPrefix("6 "))
         XCTAssertTrue(lines[6].hasPrefix("1 "))
     }
 
     func testEmptySlotSymbolIsHollowCircle() {
         let board = Connect4Board()
-        XCTAssertEqual(board.emptySlot, "◯")
+        XCTAssertEqual(board.emptySlot, "⚪")
     }
 
     func testPlayer1CoinSymbolIsYellowCircle() {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Connect4Board {
-    let emptySlot: String = "◯"
+    let emptySlot: String = "⚪"
     let player1Coin: String = "🟡"
     let player2Coin: String = "🔴"
     let rows: Int = 6
@@ -70,7 +70,7 @@ struct Connect4Board {
 
     private func buildHeader() -> String {
         let columnNumbers = (1...columns).map { String($0) }
-        return "  " + columnNumbers.joined(separator: " ")
+        return "  " + columnNumbers.joined(separator: "  ")
     }
 
     private func buildRows() -> [String] {
